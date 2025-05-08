@@ -1,0 +1,5 @@
++ install npm package manager
++ execute commands
+- : $ npm install socket.io
+- : $ npm install mongoose
+
