@@ -2,6 +2,7 @@ const { meeting } = require("../models/meeting.model");
 const { meetingUser } = require("../models/meeting-user.model");
 
 
+
 async function getAllMeetingUsers(meetId, callback)
 {
     await meetingUser.find({meetingId: meetId})
@@ -84,7 +85,8 @@ async function isMeetingPresent(meetingId, callback)
 
 async function checkMeetingExists(meetingId, callback)
 {
-	meeting.findById(meetingId, "hostId, hostName, startTime")
+	meeting
+	.findById(meetingId, "hostId, hostName, startTime")
 	.populate("meetingUsers", "MeetingUser")
 	.then( (response) => {
 		if (!response)
@@ -108,7 +110,8 @@ async function getMeetingUser(params, callback)
 {
 	const { meetingId, userId } = params;
 
-	meetingUser.find( {meetingId, userId} )
+	meetingUser
+	.find( {meetingId, userId} )
 	.then( (response) => {
 		return callback(null, response[0]);
 	})
@@ -116,6 +119,7 @@ async function getMeetingUser(params, callback)
 		return callback( error, false );
 	});
 }
+
 
 
 
