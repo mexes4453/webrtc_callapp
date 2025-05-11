@@ -21,7 +21,7 @@ async function startMeeting(params, callback)
 {
     const meetingSchema = new meeting(params);
 
-    meetingSchema
+    await meetingSchema
     .save()
     .then( (response) => {
         return callback(null, response);
@@ -138,3 +138,35 @@ async function updateMeetingUser(params, callback)
 	});
 }
 
+
+
+
+
+async function getUserBySocketId(params, callback)
+{
+    const { meetingId, socketId } = params;
+
+    meetingUser
+    .find( { meetingId, socketId } )
+    .limit(1)
+    .then( (response) => {
+        return callback(null, response);
+    })
+    .catch( (error) => {
+        return callback(error);
+    });
+}
+
+
+
+
+module.exports = {
+    startMeeting,
+    joinMeeting,
+    getAllMeetingUsers,
+    updateMeetingUser,
+    getUserBySocketId,
+    isMeetingPresent, 
+    checkMeetingExists,
+    getMeetingUser
+};
