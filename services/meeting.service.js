@@ -95,7 +95,7 @@ async function checkMeetingExists(meetingId, callback)
 		}
 		else
 		{
-			callback(null, true);
+			callback(null, response);
 		}
 	})
 	.catch( (error) => {

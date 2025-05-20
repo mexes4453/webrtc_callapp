@@ -45,34 +45,38 @@ function handleMessage(meetingId, socket, message, meetingServer)
 
     switch(payload.type)
     {
-        case MeetingPayloadEnum.JOINED_MEETING:
+        case MeetingPayloadEnum.JOIN_MEETING:
             meetingHelper
-            .joinMeeting( meetingId, socket, payload, meetingServer);
+            .joinMeeting( meetingId, socket, meetingServer, payload);
             break;
         case MeetingPayloadEnum.CONNECTION_REQUEST:
             meetingHelper
-            .forwardConnectionRequest( meetingId, socket, payload, meetingServer);
+            .forwardConnectionRequest( meetingId, socket, meetingServer, payload);
             break;
         case MeetingPayloadEnum.OFFER_SDP:
             meetingHelper
-            .forwardOfferSdp( meetingId, socket, payload, meetingServer);
+            .forwardOfferSdp( meetingId, socket,  meetingServer, payload);
             break;
-        case MeetingPayloadEnum.JOINED_MEETING:
+        case MeetingPayloadEnum.ICECANDIDATE:
             meetingHelper
-            .forwardAnswerSdp( meetingId, socket, payload, meetingServer);
+            .forwardIceCandidate( meetingId, socket,  meetingServer, payload);
+            break;
+        case MeetingPayloadEnum.ANSWER_SDP:
+            meetingHelper
+            .forwardAnswerSdp( meetingId, socket,  meetingServer, payload);
             break;
         case MeetingPayloadEnum.LEAVE_MEETING:
             meetingHelper
-            .userLeft( meetingId, socket, payload, meetingServer);
+            .userLeft( meetingId, socket,  meetingServer, payload);
             break;
         case MeetingPayloadEnum.END_MEETING:
             meetingHelper
-            .endMeeting( meetingId, socket, payload, meetingServer);
+            .endMeeting( meetingId, socket,  meetingServer, payload);
             break;
         case MeetingPayloadEnum.VIDEO_TOGGLE:
         case MeetingPayloadEnum.AUDIO_TOGGLE:
             meetingHelper
-            .forwardEvent( meetingId, socket, payload, meetingServer);
+            .forwardEvent( meetingId, socket,  meetingServer, payload);
             break;
         case MeetingPayloadEnum.UNKNOWN:
             break;

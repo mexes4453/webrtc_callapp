@@ -8,7 +8,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"mongoose": "^8.14.1",
-		"socket.io": "^4.8.1"
+		"express": "^5.1.0",
+		"mongoose": "^6.3.4",
+		"socket.io": "^2.4.1"
 	}
 }

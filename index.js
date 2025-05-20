@@ -11,15 +11,17 @@ initMeetingServer(server);
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_DB_CONFIG, {
+mongoose.connect(MONGO_DB_CONFIG.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
     })
     .then( () => {
         console.log("Database Connected");
-    },
-    (error) => {
+    })
+    .catch( (error) => {
         console.log("Database connection failed");
+        console.log(error.message);
+        process.exit(1);
     }
 );
 

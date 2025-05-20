@@ -1,5 +1,30 @@
 + install npm package manager
 + execute commands
-- : $ npm install socket.io
-- : $ npm install mongoose
+- : $ npm install socket.io@2.4.1
+- : $ npm install mongoose@6.3.4
+- : $ npm install express
+- : $ npm install -g nodemon
 
+# other commands for npm (javascript)
+- : $ npm uninstall <package_name>
+- : $ nodemon js                           # start node js application
+
+# install mongoDb
+: # link to youtube video to install mongodb
+:  https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://m.youtube.com/watch%3Fv%3DHSIh8UswVVY&ved=2ahUKEwjFjJCMhqGNAxUF_7sIHYo4DacQz40FegQIEhAZ&usg=AOvVaw32IqC4hsv_DmHw7QRrgCHh
+:
+: # Download mongodb server file
+: $ wget https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/8.0/multiverse/binary-amd64/mongodb-org-server_8.0.9_amd64.deb
+:
+: $ sudo dpkg -i mongo-org-server_8.0.9_amd64.deb    # install the downloaded package
+: $ sudo systemctl start mongod                      # start the daemon
+: # Note : default mongodb server "mongodb://localhost:27017"
+
+
+
+# mongoose tutorial : https://mongoosejs.com/
+
+# flutter  
+# --------
+$ flutter create <project_name>
+$ flutter pub get                 # install packages added to pubspec.yaml file
