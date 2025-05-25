@@ -34,6 +34,7 @@ dependencies:
   shared_preferences: ^2.0.13
   flutter_webrtc_wrapper: ^1.0.0
   snippet_coder_utils: ^1.0.12
+  http: ^0.13.0
 
 
   # The following adds the Cupertino Icons font to your application.
