@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Response response = await joinMeeting(meetingId);
       var data = json.decode(response.body);
       final meetingDetails = MeetingDetail.fromJson(data["data"]);
-      //goToJoinScreen(meetingDetails);
+      goToJoinScreen(meetingDetails);
     }
     catch (err)
     {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:webrtc_flutter/models/meeting_details.dart';
+import 'package:webrtc_flutter/pages/meeting_page.dart';
 
 class JoinScreen extends StatefulWidget {
   final MeetingDetail? meetingDetail;
@@ -67,6 +68,18 @@ class _JoinScreenState extends State<JoinScreen> {
                      (){
                       if (validateAndSave()){
                         //meeting:
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context){
+                              return MeetingPage(
+                                meetingId: widget.meetingDetail!.id,
+                                name: userName,
+                                meetingDetail: widget.meetingDetail!,
+                              );
+                            })
+                          )
+                        );
                       }
                      })),
               ],)
